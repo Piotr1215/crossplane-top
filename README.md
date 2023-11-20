@@ -11,6 +11,15 @@ It functions similarly to `kubectl top pods` but is specifically tailored for mo
 - Filters pods based on Crossplane-specific labels.
 - Displays metrics in a user-friendly format.
 
+### Missing Parts
+
+At this point `crossplane-runtime` does not emit any additional metrics to
+collect. There is an [open
+PR](https://github.com/crossplane/crossplane-runtime/pull/489) adding
+`crossplane_resource_drift_seconds` metric and more to follow. `Crossplane-top`
+CLI will be able to scrape those additional metrics and add them to the command
+output.
+
 ## Prerequisites
 
 - Go (version 1.15 or higher)
@@ -52,23 +61,23 @@ This includes `providers` and `functions`
 ## Example Output
 
 ```
-Pod Name: provider-helm-59fc94cd939e-6587d548cf-vgcxc
-Container Name: provider-helm
-CPU Usage: 1m
-Memory Usage: 12Mi
------
-Pod Name: provider-kubernetes-a1a49ab74384-6dd6c6fdf8-w2bpv
-Container Name: provider-kubernetes
-CPU Usage: 1m
-Memory Usage: 9Mi
+NAMESPACE            NAME                                                    CPU(cores)   MEMORY(Mi)
+crossplane-system    function-go-templating-87197075c1fb-78796c648d-fvkj8    0            6Mi
+crossplane-system    provider-helm-59fc94cd939e-cf9f6b97b-rgsk6              1            11Mi
+crossplane-system    provider-kubernetes-a1a49ab74384-68ffcc7f45-tpq8k       1            9Mi
 -----
 ```
 
-## Customization
+## Future Customization
 
-You can modify the label selector in the code to target different pods or adjust the namespace as per your Crossplane setup.
+You will be able to modify the label selector in the code to target different pods or adjust the namespace as per your Crossplane setup.
 
 <!-- TODO: expose namespace and label selection via CLI -->
+
+## Similar Projects and Inspiration
+
+`Uptest` has an excellent performance testing tooling that creates some custom
+performance related metrics, for example [resources readiness](https://github.com/upbound/uptest/blob/6e567ebd9ed30f1b1670d2cbbb679fde9beebc6b/cmd/perf/internal/managed/managed.go#L171).
 
 ## Contributing
 
