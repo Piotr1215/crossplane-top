@@ -1,6 +1,7 @@
 module github.com/Piotr1215/crossplane-top
 
 go 1.21.1
+toolchain go1.24.1
 
 require (
 	k8s.io/apimachinery v0.28.4
@@ -11,7 +12,6 @@ require (
 	github.com/google/pprof v0.0.0-20230926050212-f7f687d19a98 // indirect
 	github.com/onsi/ginkgo/v2 v2.11.0 // indirect
 	github.com/onsi/gomega v1.27.10 // indirect
-	golang.org/x/tools v0.14.0 // indirect
 )
 
 require (
@@ -35,11 +35,11 @@ require (
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
-	golang.org/x/net v0.23.0 // indirect
+	golang.org/x/net v0.38.0 // indirect
 	golang.org/x/oauth2 v0.11.0 // indirect
-	golang.org/x/sys v0.18.0 // indirect
-	golang.org/x/term v0.18.0 // indirect
-	golang.org/x/text v0.14.0 // indirect
+	golang.org/x/sys v0.31.0 // indirect
+	golang.org/x/term v0.30.0 // indirect
+	golang.org/x/text v0.23.0 // indirect
 	golang.org/x/time v0.3.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/protobuf v1.33.0 // indirect
